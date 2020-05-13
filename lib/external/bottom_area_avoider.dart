@@ -102,14 +102,14 @@ class BottomAreaAvoiderState extends State<BottomAreaAvoider> {
         LayoutBuilder(
           builder: (context, constraints) {
             return SingleChildScrollView(
-                controller: _scrollController, child: widget.child
-//              child: ConstrainedBox(
-//                constraints: BoxConstraints(
-//                  minHeight: constraints.maxHeight,
-//                ),
-//                child: widget.child,
-//              ),
-                );
+              controller: _scrollController,
+              child: ConstrainedBox(
+                constraints: BoxConstraints(
+                  minHeight: constraints.maxHeight,
+                ),
+                child: widget.child,
+              ),
+            );
           },
         ),
       );
