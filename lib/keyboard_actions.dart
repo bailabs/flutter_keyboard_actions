@@ -525,7 +525,7 @@ class KeyboardActionstate extends State<KeyboardActions>
               key: _keyParent,
               child: BottomAreaAvoider(
                 key: bottomAreaAvoiderKey,
-                areaToAvoid: _offset,
+                areaToAvoid: 0.0,
                 overscroll: widget.overscroll,
                 duration: Duration(
                     milliseconds:
