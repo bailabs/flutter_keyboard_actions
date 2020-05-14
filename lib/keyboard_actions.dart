@@ -342,7 +342,6 @@ class KeyboardActionstate extends State<KeyboardActions>
       });
       return;
     }
-
     double newOffset = _kBarSize; // offset for the actions bar
     newOffset += MediaQuery.of(context)
         .viewInsets
@@ -525,7 +524,7 @@ class KeyboardActionstate extends State<KeyboardActions>
               key: _keyParent,
               child: BottomAreaAvoider(
                 key: bottomAreaAvoiderKey,
-                areaToAvoid: 20.0,
+                areaToAvoid: 0.0,
                 overscroll: widget.overscroll,
                 duration: Duration(
                     milliseconds:

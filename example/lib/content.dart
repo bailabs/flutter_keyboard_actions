@@ -164,109 +164,114 @@ class _ContentState extends State<Content> {
 
   @override
   Widget build(BuildContext context) {
-    return KeyboardActions(
-      isDialog: widget.isDialog,
-      config: _buildConfig(context),
-      child: Container(
-        padding: const EdgeInsets.all(15.0),
-        child: Center(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            mainAxisSize: MainAxisSize.min,
-            children: <Widget>[
-              TextField(
-                keyboardType: TextInputType.number,
-                focusNode: _nodeText1,
-                decoration: InputDecoration(
-                  hintText: "Input Number",
-                ),
-              ),
-              TextField(
-                keyboardType: TextInputType.text,
-                focusNode: _nodeText2,
-                decoration: InputDecoration(
-                  hintText: "Input Text with Custom Done Widget",
-                ),
-              ),
-              TextField(
-                keyboardType: TextInputType.number,
-                focusNode: _nodeText3,
-                decoration: InputDecoration(
-                  hintText: "Input Number with Custom Action",
-                ),
-              ),
-              TextField(
-                keyboardType: TextInputType.text,
-                focusNode: _nodeText4,
-                decoration: InputDecoration(
-                  hintText: "Input Text without Done Button",
-                ),
-              ),
-              TextField(
-                keyboardType: TextInputType.number,
-                focusNode: _nodeText5,
-                decoration: InputDecoration(
-                  hintText: "Input Number with Toolbar Buttons",
-                ),
-              ),
-              TextField(
-                keyboardType: TextInputType.number,
-                focusNode: _nodeText6,
-                decoration: InputDecoration(
-                  hintText: "Input Number with Custom Footer",
-                ),
-              ),
-              TextField(
-                focusNode: _nodeText7,
-                decoration: InputDecoration(
-                  hintText: "Input Number with Custom Footer without Bar",
-                ),
-              ),
-              KeyboardCustomInput<String>(
-                focusNode: _nodeText8,
-                height: 65,
-                notifier: custom1Notifier,
-                builder: (context, val, hasFocus) {
-                  return Container(
-                    alignment: Alignment.center,
-                    color: hasFocus ? Colors.grey[300] : Colors.white,
-                    child: Text(
-                      val,
-                      style:
-                          TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+    return SingleChildScrollView(
+      child: Column(
+        children: <Widget>[
+          KeyboardActions(
+            isDialog: widget.isDialog,
+            autoScroll: false,
+            config: _buildConfig(context),
+            child: Container(
+              padding: const EdgeInsets.all(15.0),
+              child: Center(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  mainAxisSize: MainAxisSize.min,
+                  children: <Widget>[
+                    TextField(
+                      keyboardType: TextInputType.number,
+                      focusNode: _nodeText1,
+                      decoration: InputDecoration(
+                        hintText: "Input Number",
+                      ),
                     ),
-                  );
-                },
+                  ],
+                ),
               ),
-              KeyboardCustomInput<Color>(
-                focusNode: _nodeText9,
-                height: 65,
-                notifier: custom2Notifier,
-                builder: (context, val, hasFocus) {
-                  return Container(
-                    width: double.maxFinite,
-                    color: val ?? Colors.transparent,
-                  );
-                },
-              ),
-              KeyboardCustomInput<String>(
-                focusNode: _nodeText10,
-                height: 65,
-                notifier: custom3Notifier,
-                builder: (context, val, hasFocus) {
-                  return Container(
-                    alignment: Alignment.center,
-                    child: Text(
-                      val.isEmpty ? "Tap Here" : val,
-                      style:
-                          TextStyle(fontSize: 25, fontWeight: FontWeight.w500),
-                    ),
-                  );
-                },
-              ),
-            ],
+            ),
           ),
-        ),
+          TextField(
+            keyboardType: TextInputType.text,
+            focusNode: _nodeText2,
+            decoration: InputDecoration(
+              hintText: "Input Text with Custom Done Widget",
+            ),
+          ),
+          TextField(
+            keyboardType: TextInputType.number,
+            focusNode: _nodeText3,
+            decoration: InputDecoration(
+              hintText: "Input Number with Custom Action",
+            ),
+          ),
+          TextField(
+            keyboardType: TextInputType.text,
+            focusNode: _nodeText4,
+            decoration: InputDecoration(
+              hintText: "Input Text without Done Button",
+            ),
+          ),
+          TextField(
+            keyboardType: TextInputType.number,
+            focusNode: _nodeText5,
+            decoration: InputDecoration(
+              hintText: "Input Number with Toolbar Buttons",
+            ),
+          ),
+          TextField(
+            keyboardType: TextInputType.number,
+            focusNode: _nodeText6,
+            decoration: InputDecoration(
+              hintText: "Input Number with Custom Footer",
+            ),
+          ),
+          TextField(
+            focusNode: _nodeText7,
+            decoration: InputDecoration(
+              hintText: "Input Number with Custom Footer without Bar",
+            ),
+          ),
+          KeyboardCustomInput<String>(
+            focusNode: _nodeText8,
+            height: 65,
+            notifier: custom1Notifier,
+            builder: (context, val, hasFocus) {
+              return Container(
+                alignment: Alignment.center,
+                color: hasFocus ? Colors.grey[300] : Colors.white,
+                child: Text(
+                  val,
+                  style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+                ),
+              );
+            },
+          ),
+          KeyboardCustomInput<Color>(
+            focusNode: _nodeText9,
+            height: 65,
+            notifier: custom2Notifier,
+            builder: (context, val, hasFocus) {
+              return Container(
+                width: double.maxFinite,
+                color: val ?? Colors.transparent,
+              );
+            },
+          ),
+          KeyboardCustomInput<String>(
+            focusNode: _nodeText10,
+            height: 65,
+            notifier: custom3Notifier,
+            builder: (context, val, hasFocus) {
+              return Container(
+                alignment: Alignment.center,
+                child: Text(
+                  val.isEmpty ? "Tap Here" : val,
+                  style: TextStyle(fontSize: 25, fontWeight: FontWeight.w500),
+                ),
+              );
+            },
+          ),
+        ],
       ),
     );
   }
